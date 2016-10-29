@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - node_modules/phantomjs-prebuilt/bin/phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- node_modules/phantomjs-prebuilt/bin/phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZmoBnEDihDvHITkt56VSFwWT3M+fw+h/u+U9SuylrH0XiCjpxL2aKdolt/q7EmBnrZ80w6lYofCQ+2nr/ZNwqBnxOZvdkK7TIApTjaIzcAtSyXEmdNWvWGDAHw1z28k/0mHIrgMh9uZsF6xW+cFWw9d+cGsW7LFkzDRcaAS+QxCC1LXMenfawNsRN3WzZCLf16a3VnRcQX/R/R8bhzLwQoFkYO6oKoTOjKSUHQM/ea6i/dWB5HrxEerjVQX/wXrT/zlbQI2EbCvq8+SQlC5M6ZRNn1Tg+dSVHFNoQvqRacq6J6rrmfojbV93kXrW5D8fhSb9mAXqdkri68FLlei4fLktRo3hu4AHpAbYqbIbN/57UVZrJ6rd3Xo04icNhg3IJaS1ShNwbFrN4ZDAE/YIHhfeSkIH/XAuSIhWLgzJQ+nOoSd9w9Yytctkrq0DX4lSPMph9NcuqxCFO4naGNlRC/GPcxM1LJSa4n1tviSe6NhjZL3+4t477DDizxlcSjBC5dwJ/ACMuLWo87egV9e8PbhGXQEWlx02LORG665mRW0cfP181b/vaOxqfvrhwJ5wlFOM5HF9e8n0iJY19FtEguRsiHIdWoAMQOG4SqWRT9InzsYgxLY8lFAJgVCd9DgI+LJMgGldPLVMpHW2oeM0vXVnmRlbDYLBFo2iTUrvvpo=
+  app: shielded-dusk-14578
+  on:
+    repo: jartek/elixir-app-ui
